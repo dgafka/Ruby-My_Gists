@@ -1,21 +1,5 @@
 MyGists::Application.routes.draw do
-  get "languages/index"
-  get "languages/show"
-  get "languages/edit"
-  get "languages/delete"
-  get "languages/create"
-  get "users/index"
-  get "users/show"
-  get "users/edit"
-  get "users/delete"
-  get "user_controller/index"
-  get "user_controller/show"
-  get "user_controller/edit"
-  get "user_controller/delete"
-  get "user/index"
-  get "user/show"
-  get "user/edit"
-  get "user/delete"
+
   #get "main/index"
   #get "gists/index"
   #get "gists/show"
@@ -24,6 +8,8 @@ MyGists::Application.routes.draw do
   #resources :gists
 
   root 'main#index'
+
+  get 'admin', :to => "main#index"
 
   match ":controller(/:action(/:id))", via: [:get, :post]
 

@@ -1,15 +1,15 @@
 <table summary="Gists form fields">
   <tr>
-    <th><%= f.label(:snippet) %></th>
-    <td><%= f.text_area(:snippet, :size => '40x10') %></td>
+    <th><%= f.label(:snippet) %>:&nbsp;</th>
+    <td><%= f.text_area(:snippet, :size => '40x10', :class => 'form-control') %></td>
   </tr>
   <tr>
-    <th><%= f.label(:language_id, "Language") %></th>
+    <th><%= f.label(:language_id, "Language") %>:&nbsp;</th>
     <td><%= f.select(:language_id, @languages.collect {|p| [p.name, p.id]}) %>
     </td>
   </tr>
   <tr>
-    <th><%= f.label(:description) %></th>
-    <td><%= f.text_area(:description, :size => '40x5') %></td>
+    <th><%= f.label(:description) %>:&nbsp;</th>
+    <td><%= f.text_area(:description, :size => '40x5', :class => 'form-control') %></td>
   </tr>
 </table>

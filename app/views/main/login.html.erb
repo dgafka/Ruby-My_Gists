@@ -1,0 +1,30 @@
+<% @page_title = "Login" %>
+<% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Login</div>
+  <div class="panel-body">
+    <div class="login">
+      <%= form_tag(:action => 'attempt_login') do %>
+          <table>
+            <tr>
+              <td><%= label_tag(:username) %>:&nbsp;</td>
+              <td><%= text_field_tag(:username, nil, :class => 'form-control') %></td>
+            </tr>
+            <tr>
+              <td><%= label_tag(:password) %>:&nbsp;</td>
+              <td><%= password_field_tag(:password, nil, :class => 'form-control') %></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td><br/>
+              <td><%= submit_tag("Log In", :class => 'btn btn-info') %></td>
+            </tr>
+          </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+
