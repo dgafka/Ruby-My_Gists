@@ -2,7 +2,7 @@
 
 This application was made for studies, for subject related with Ruby Rails.
 
-If you want to run this application, you would like to install following things:
+If you would like to run this application, you have to install following components
 
 * Ruby version 2.0.1
 
@@ -11,7 +11,13 @@ If you want to run this application, you would like to install following things:
 * Install gems
 
 
-===Application
+===Application contains
+* Bootstrap 3
+* Bcrypt - for login system
+* CRUD operations on two related tables
+* Login/register system with one table for users
+* Small table to immitate versioning
+* System prevents non-logged users from accessing restricted areas
 
 
-<tt>D.Gafka</tt>.
+<tt>D.Gafka</tt>
