@@ -11,14 +11,8 @@ gem 'rails', '4.0.4'
 #gem 'sqlite3'
 
 # Use postgresql as the database for Active Record
-group :development, :test do
-  gem 'pg'
-end
+gem 'pg'
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
 
 gem 'pygments.rb'
 gem 'redcarpet'
