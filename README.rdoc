@@ -1,28 +1,17 @@
-== README
+== Gists Website Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application was made for studies, for subject related with Ruby Rails.
 
-Things you may want to cover:
+If you want to run this application, you would like to install following things:
 
-* Ruby version
+* Ruby version 2.0.1
 
-* System dependencies
+* Rails 4.0.4
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Install gems
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+===Application
+
+
+<tt>D.Gafka</tt>.
