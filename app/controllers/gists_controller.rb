@@ -1,4 +1,7 @@
 class GistsController < ApplicationController
+
+  before_action :check_session, :except => [:index, :show]
+
   def index
     @gists = Gist.sorted
   end
@@ -34,6 +37,11 @@ class GistsController < ApplicationController
   def update
     @gist = Gist.find(params[:id])
     if @gist.update_attributes(section_params)
+      @gistEdit = GistEdit.new(:summary => params[:summary]["{:size=>\"40x5\", :class=>\"form-control\"}"])
+      @gistEdit.gist = @gist;
+      @gistEdit.user = User.find(session[:user_id]);
+
+      @gistEdit.save();
       flash[:notice] = "Gist updated successfully."
       redirect_to(:action => 'show', :id => @gist.id)
     else
@@ -47,6 +55,7 @@ class GistsController < ApplicationController
 
   def destroy
     Gist.find(params[:id]).destroy;
+    flash[:notice] = "Gist deleted successfully."
     redirect_to(:action => 'index')
   end
 

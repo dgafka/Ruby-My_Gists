@@ -1,4 +1,8 @@
 class LanguagesController < ApplicationController
+
+  before_action :check_session, :except => [:index, :show]
+
+
   def index
     @languages = Language.sorted
   end
@@ -27,7 +31,7 @@ class LanguagesController < ApplicationController
 
   def destroy
     @language = Language.find(params[:id]).destroy();
-    flash[:notice] = "Language destroyed successfully."
+    flash[:notice] = "Language deleted successfully."
     redirect_to(:action => 'index')
   end
 

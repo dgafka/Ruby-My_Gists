@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
 
   has_many(:gist_edits)
 
+
+  validates :username, :length => { :within => 1..25 },
+            :uniqueness => true
+
 end

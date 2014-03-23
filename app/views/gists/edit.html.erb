@@ -11,7 +11,24 @@
 
       <%= form_for(:gist, :url => {:action => 'update', :id => @gist.id}) do |f| %>
           <div class="form-group">
-            <%= render(:partial => "form", :locals => {:f => f}) %>
+            <table summary="Gists form fields">
+              <tr>
+                <th><%= f.label(:snippet) %>:&nbsp;</th>
+                <td><%= f.text_area(:snippet, :size => '40x10', :class => 'form-control') %></td>
+              </tr>
+              <tr>
+                <th><%= f.label(:language_id, "Language") %>:&nbsp;</th>
+                <td><%= f.select(:language_id, @languages.collect {|p| [p.name, p.id]}) %></td>
+              </tr>
+              <tr>
+                <th><%= f.label(:description) %>:&nbsp;</th>
+                <td><%= f.text_area(:description, :size => '40x5', :class => 'form-control') %></td>
+              </tr>
+              <tr>
+                <th><%= label_tag(:summary) %> of changes:&nbsp;</th>
+                <td><%= text_area(:summary, :size => '40x5', :class => 'form-control') %></td>
+              </tr>
+            </table>
 
             <br />
             <div class="form-buttons">

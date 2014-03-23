@@ -1,5 +1,7 @@
 class MainController < ApplicationController
 
+  before_action :check_session, :except => [:index, :login, :attempt_login, :logout]
+
   def index
   end
 
@@ -13,8 +15,8 @@ class MainController < ApplicationController
         authorized_user = found_user.authenticate(params[:password])
       end
     end
+    #user logs in
     if authorized_user
-      # mark user as logged in
       session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username
       flash[:notice] = "You are now logged in."
@@ -26,6 +28,10 @@ class MainController < ApplicationController
   end
 
   def logout
-
+    session[:user_id] = nil
+    session[:username] = nil
+    flash[:notice] = "Logged out"
+    redirect_to(:action => "login")
   end
+
 end

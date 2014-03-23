@@ -2,14 +2,22 @@
     <div class="alert alert-success"><%= flash[:notice] %></div>
 <% end %>
 
+<% if !session.key?("user_id") %>
+    <div class="panel panel-default">
+        <div class="panel-body">
+          <p><h1>Welcome to Gists project.</h1></p><br/><br/>
 
-<div class="panel panel-default">
-    <div class="panel-body">
-      <p><h1>Welcome to Gists project.</h1></p><br/><br/>
+          <p>The project was made for studies, for subject related with Ruby Rails.</p> <br />
 
-      <p>The project was made for studies, for subject related with Ruby Rails.</p> <br />
-
-      Feel free to copy.
+          Feel free to copy.
+        </div>
+        <div class="panel-footer">Dariusz Gafka</div>
     </div>
-    <div class="panel-footer">Dariusz Gafka</div>
-</div>
+<% else %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p><h1>Welcome - <%= session['username'] %></h1></p><br/><br/>
+      </div>
+      <div class="panel-footer">Dariusz Gafka</div>
+    </div>
+<% end %>

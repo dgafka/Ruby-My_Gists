@@ -1,14 +1,17 @@
-<% @page_title = "Login" %>
+<% @page_title = "register" %>
 <% if flash[:notice] %>
     <div class="alert alert-danger"><%= flash[:notice] %></div>
 <% end %>
 
+
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Login</div>
+  <div class="panel-heading">Register account</div>
   <div class="panel-body">
-    <div class="login">
-      <%= form_tag(:action => 'attempt_login') do %>
+    <div class="register form new">
+      <h2>Create User</h2><br/>
+
+      <%= form_for(:user, :url => {:action => 'new'}) do |f| %>
           <table>
             <tr>
               <td><%= label_tag(:username) %>:&nbsp;</td>
@@ -19,13 +22,15 @@
               <td><%= password_field_tag(:password, nil, :class => 'form-control') %></td>
             </tr>
             <tr>
+              <td><%= label_tag(:password_confirmation) %>:&nbsp;</td>
+              <td><%= password_field_tag(:password_confirmation, nil, :class => 'form-control') %></td>
+            </tr>
+            <tr>
               <td>&nbsp;</td><br/>
-              <td><%= submit_tag("Log In", :class => 'btn btn-info') %>
-              <%= link_to("Register", {:controller => 'users',:action => 'register'}, :class => 'action btn btn-info') %></td>
+              <td><%= submit_tag("Register", :class => 'btn btn-primary') %></td>
             </tr>
           </table>
       <% end %>
     </div>
   </div>
 </div>
-

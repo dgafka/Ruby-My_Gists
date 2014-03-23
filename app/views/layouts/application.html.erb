@@ -14,8 +14,12 @@
                         <li><%= link_to("Home", {controller: 'main', :action => 'index'}, :class => 'back-link') %></li>
                         <li><%= link_to("Gists", {controller: 'gists', :action => 'index'}, :class => 'back-link') %></li>
                         <li><%= link_to("Languages", {controller: 'languages', :action => 'index'}, :class => 'back-link') %></li>
-                        <li><%= link_to("Admin", {controller: 'main', :action => 'login'}, :class => 'back-link') %></li>
-                      </ul>
+                        <% if !session.key?("user_id") %>
+                            <li><%= link_to("Login", {controller: 'main', :action => 'login'}, :class => 'back-link') %></li>
+                        <% else %>
+                            <li><%= link_to("Logout", {controller: 'main', :action => 'logout'}, :class => 'btn btn-info logout') %></li>
+                        <% end %>
+                        </ul>
                 </div>
           </div>
 
