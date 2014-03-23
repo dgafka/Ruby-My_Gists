@@ -1,0 +1,24 @@
+<% @page_title = "New Language" %>
+
+<p class="navbar-text navbar-right"><%= link_to("Back to List", {:action => 'index'}, :class => 'back-link') %></p>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Language - Create</div>
+  <div class="panel-body">
+    <div class="language form new">
+      <h2>Create Language</h2><br/>
+
+      <%= form_for(:language, :url => {:action => 'new'}) do |f| %>
+        <div class="form-group">
+          <%= render(:partial => "form", :locals => {:f => f}) %>
+
+          <br />
+          <div class="form-buttons">
+            <%= submit_tag("Create Language", :class => 'btn btn-primary') %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

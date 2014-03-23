@@ -1,0 +1,33 @@
+<% if flash[:notice] %>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Languages - List</div>
+  <div class="panel-body">
+    <%= link_to("Add new Language", {:action => 'create'}, :class => 'action btn btn-success') %>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <tr class="header">
+      <th>Language</th>
+      <th>Difficulty</th>
+      <th>Create Date</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <% @languages.each do |language| %>
+        <tr>
+          <td><%= language.name %></td>
+          <td><%= language.difficulty %></td>
+          <td><%= fixDate(language.created_at) %></td>
+          <td><%= link_to("Show", {:action => 'show', :id => language.id}, :class => 'action btn btn-primary') %></td>
+          <td><%= link_to("Edit", {:action => 'edit', :id => language.id}, :class => 'action btn btn-warning') %></td>
+          <td><%= link_to("Delete", {:action => 'delete', :id => language.id}, :class => 'action btn btn-danger') %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>

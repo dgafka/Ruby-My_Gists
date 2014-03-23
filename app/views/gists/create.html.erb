@@ -1,0 +1,24 @@
+<% @page_title = "New Gist" %>
+
+<p class="navbar-text navbar-right"><%= link_to("Back to List", {:action => 'index'}, :class => 'back-link') %></p>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Gist - Create</div>
+  <div class="panel-body">
+    <div class="gist form new">
+      <h2>Create Gist</h2><br/>
+
+      <%= form_for(:gist, :url => {:action => 'new'}) do |f| %>
+        <div class="form-group">
+          <%= render(:partial => "form", :locals => {:f => f}) %>
+
+          <br />
+          <div class="form-buttons">
+            <%= submit_tag("Create Gist", :class => 'btn btn-primary') %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

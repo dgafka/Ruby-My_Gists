@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-  <title>MyGists</title>
+  <title><%= @page_title || "My Gists" %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+          <div class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                      <ul class="nav nav-pills">
+                        <li><%= link_to("Home", {controller: 'main', :action => 'index'}, :class => 'back-link') %></li>
+                        <li><%= link_to("Gists", {controller: 'gists', :action => 'index'}, :class => 'back-link') %></li>
+                        <li><%= link_to("Languages", {controller: 'languages', :action => 'index'}, :class => 'back-link') %></li>
+                        <li><%= link_to("Admin", {controller: 'users', :action => 'login'}, :class => 'back-link') %></li>
+                      </ul>
+                </div>
+          </div>
 
-<%= yield %>
+      <div class="row clearfix">
+            <div class="container">
+                <%= yield %>
+            </div>
+      </div>
 
+    </div>
 </body>
 </html>

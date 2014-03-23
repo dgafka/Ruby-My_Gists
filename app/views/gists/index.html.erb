@@ -1,31 +1,37 @@
-<h1>Listing gists</h1>
+<% if flash[:notice] %>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Snippet</th>
-      <th>Lang</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Gists - List</div>
+  <div class="panel-body">
+    <%= link_to("Add new Gist", {:action => 'create'}, :class => 'action btn btn-success') %>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <tr class="header">
+        <th>Snippet</th>
+        <th>Language</th>
+        <th>Description</th>
+        <th>Last Modification</th>
+        <th>Create Date</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
-  </thead>
-
-  <tbody>
     <% @gists.each do |gist| %>
-      <tr>
-        <td><%= gist.snippet %></td>
-        <td><%= gist.lang %></td>
-        <td><%= gist.description %></td>
-        <td><%= link_to 'Show', gist %></td>
-        <td><%= link_to 'Edit', edit_gist_path(gist) %></td>
-        <td><%= link_to 'Destroy', gist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+              <td><%= gist.snippet %></td>
+              <td><%= gist.language ? gist.language.name : 'Empty' %></td>
+              <td><%= gist.description %></td>
+              <td><%= fixDate(gist.updated_at) %></td>
+              <td><%= fixDate(gist.created_at) %></td>
+              <td><%= link_to("Show", {:action => 'show', :id => gist.id}, :class => 'action btn btn-primary') %></td>
+              <td><%= link_to("Edit", {:action => 'edit', :id => gist.id}, :class => 'action btn btn-warning') %></td>
+              <td><%= link_to("Delete", {:action => 'delete', :id => gist.id}, :class => 'action btn btn-danger') %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Gist', new_gist_path %>
+  </table>
+</div>

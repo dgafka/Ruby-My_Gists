@@ -1,0 +1,25 @@
+<% @page_title = "Delete Language" %>
+
+<p class="navbar-text navbar-right"><%= link_to("Back to List", {:action => 'index'}, :class => 'back-link') %></p>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Language - Delete</div>
+  <div class="panel-body">
+    <div class="language form new">
+      <h2>Delete language</h2><br/>
+
+      <%= form_for(:section, :url => {:action => 'destroy', :id => @language.id}) do |f| %>
+
+          <p>Are you sure you want to permanently delete this language?</p>
+
+          <p class="reference-name"><%= @language.name %></p>
+
+          <div class="form-buttons">
+            <%= submit_tag("Delete Language", :class => 'btn btn-danger') %>
+          </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

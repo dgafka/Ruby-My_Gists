@@ -1,0 +1,23 @@
+<% @page_title = "Delete Gist" %>
+
+<p class="navbar-text navbar-right"><%= link_to("Back to List", {:action => 'index'}, :class => 'back-link') %></p>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Gist - Delete</div>
+  <div class="panel-body">
+    <div class="gist form new">
+      <h2>Delete gist</h2><br/>
+
+      <%= form_for(:section, :url => {:action => 'destroy', :id => @gist.id}) do |f| %>
+
+          <p>Are you sure you want to permanently delete this gist?</p>
+
+          <div class="form-buttons">
+            <%= submit_tag("Delete Gist", :class => 'btn btn-danger') %>
+          </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

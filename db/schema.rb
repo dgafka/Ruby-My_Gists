@@ -11,14 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317194445) do
+ActiveRecord::Schema.define(version: 20140323115717) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "gist_edits", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "gist_id"
+    t.string   "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gist_edits", ["user_id", "gist_id"], name: "index_gist_edits_on_user_id_and_gist_id", using: :btree
 
   create_table "gists", force: true do |t|
     t.text     "snippet"
-    t.string   "lang"
+    t.integer  "language_id"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "languages", force: true do |t|
+    t.string   "name",       limit: 30, null: false
+    t.integer  "difficulty", limit: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "first_name",      limit: 25
+    t.string   "last_name",       limit: 25
+    t.string   "email",           limit: 100, default: ""
+    t.string   "username",        limit: 25,               null: false
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
 end

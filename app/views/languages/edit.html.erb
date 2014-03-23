@@ -1,21 +1,21 @@
-<% @page_title = "Edit Gist" %>
+<% @page_title = "Edit Language" %>
 
 <p class="navbar-text navbar-right"><%= link_to("Back to List", {:action => 'index'}, :class => 'back-link') %></p>
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Gist - Update</div>
+  <div class="panel-heading">Language - Edit</div>
   <div class="panel-body">
-    <div class="gist form update">
-      <h2>Create Gist</h2><br/>
+    <div class="language form new">
+      <h2>Edit Language</h2><br/>
 
-      <%= form_for(:gist, :url => {:action => 'update', :id => @gist.id}) do |f| %>
+      <%= form_for(:language, :url => {:action => 'update', :id => @language.id}) do |f| %>
           <div class="form-group">
             <%= render(:partial => "form", :locals => {:f => f}) %>
 
             <br />
             <div class="form-buttons">
-              <%= submit_tag("Update Gist", :class => 'btn btn-primary') %>
+              <%= submit_tag("Update Language", :class => 'btn btn-primary') %>
             </div>
           </div>
       <% end %>

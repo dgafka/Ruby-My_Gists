@@ -1,5 +1,31 @@
 MyGists::Application.routes.draw do
-  resources :gists
+  get "languages/index"
+  get "languages/show"
+  get "languages/edit"
+  get "languages/delete"
+  get "languages/create"
+  get "users/index"
+  get "users/show"
+  get "users/edit"
+  get "users/delete"
+  get "user_controller/index"
+  get "user_controller/show"
+  get "user_controller/edit"
+  get "user_controller/delete"
+  get "user/index"
+  get "user/show"
+  get "user/edit"
+  get "user/delete"
+  #get "main/index"
+  #get "gists/index"
+  #get "gists/show"
+  #get "gists/edit"
+  #get "gists/delete"
+  #resources :gists
+
+  root 'main#index'
+
+  match ":controller(/:action(/:id))", via: [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

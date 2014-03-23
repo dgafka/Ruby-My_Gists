@@ -1,15 +1,51 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Lang:</strong>
-  <%= @gist.lang %>
-</p>
-<p>
-  <strong>Snippet:</strong>
-</p>
-<%= raw Pygments.highlight(@gist.snippet, lexer: @gist.lang) %>
-<p>
-  <strong>Description:</strong>
-  <%= @gist.description %>
-</p>
-<%= link_to 'Edit', edit_gist_path(@gist) %> |
-<%= link_to 'Back', gists_path %>
+<% @page_title = "Show Gist" %>
+
+<% if flash[:notice] %>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+<p class="navbar-text navbar-right"><%= link_to("Back to List", {:action => 'index'}, :class => 'back-link') %></p>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Gist - Description</div>
+  <div class="panel-body">
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <tr class="header">
+      <th>Snippet</th>
+      <th>Language</th>
+      <th>Description</th>
+      <th>Create Date</th>
+      <th>Show</th>
+      <th>Delete</th>
+    </tr>
+        <tr>
+          <td><%= @gist.snippet %></td>
+          <td><%= @gist.language ? @gist.language.name : 'Empty' %></td>
+          <td><%= @gist.description %></td>
+          <td><%= fixDate(@gist.created_at) %></td>
+          <td><%= link_to("Edit", {:action => 'edit', :id => @gist.id}, :class => 'action btn btn-warning') %></td>
+          <td><%= link_to("Delete", {:action => 'delete', :id => @gist.id}, :class => 'action btn btn-danger') %></td>
+        </tr>
+  </table>
+  <div class="panel-heading secondTable">Gist - Modifications</div>
+  <table class="table">
+        <tr>
+          <th>Admin</th>
+          <th>Modification Date</th>
+          <th>Summary</th>
+        </tr>
+        <% if !@gist.gist_edits.empty? %>
+            <% @gistEdits.each do |edit| %>
+            <tr>
+              <td><%= edit.user.username %></td>
+              <td><%= fixDate(edit.created_at) %></td>
+              <td><%= edit.summary %></td>
+            </tr>
+            <% end %>
+        <% end %>
+  </table>
+</div>

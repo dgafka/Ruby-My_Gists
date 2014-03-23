@@ -1,0 +1,10 @@
+<table summary="Language form fields">
+  <tr>
+    <th><%= f.label(:name) %></th>
+    <td><%= f.text_field(:name, :class => 'form-control') %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:difficulty) %></th>
+    <td><%= f.select(:difficulty, 1..9, :class => 'form-control') %></td>
+  </tr>
+</table>
