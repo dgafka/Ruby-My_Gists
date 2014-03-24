@@ -1,10 +1,11 @@
 <table summary="Language form fields">
   <tr>
     <th><%= f.label(:name) %>:&nbsp;</th>
-    <td><%= f.text_field(:name, :class => 'form-control') %></td>
+    <td><%= f.select(:name, Pygments.lexers {|p| [p.name, p.id]}) %>
   </tr>
   <tr>
     <th><%= f.label(:difficulty) %>:&nbsp;</th>
     <td><%= f.select(:difficulty, 1..9, :class => 'form-control') %></td>
   </tr>
 </table>
+

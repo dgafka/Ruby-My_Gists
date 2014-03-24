@@ -22,6 +22,11 @@ class GistsController < ApplicationController
   def new
     @gist = Gist.new(section_params)
     if @gist.save
+      @gistEdit = GistEdit.new(:summary => "Gist has been created.")
+      @gistEdit.gist = @gist;
+      @gistEdit.user = User.find(session[:user_id]);
+
+      @gistEdit.save();
       flash[:notice] = "Gist created successfully."
       redirect_to(:action => 'index')
     else

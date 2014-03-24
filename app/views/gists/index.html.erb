@@ -12,9 +12,8 @@
   <!-- Table -->
   <table class="table">
     <tr class="header">
-        <th>Snippet</th>
-        <th>Language</th>
         <th>Description</th>
+        <th>Language</th>
         <th>Last Modification</th>
         <th>Create Date</th>
         <th>Show</th>
@@ -23,9 +22,8 @@
     </tr>
     <% @gists.each do |gist| %>
         <tr>
-              <td><%= gist.snippet %></td>
-              <td><%= gist.language ? gist.language.name : 'Empty' %></td>
               <td><%= gist.description %></td>
+              <td><%= gist.language ? gist.language.name : 'Empty' %></td>
               <td><%= fixDate(gist.updated_at) %></td>
               <td><%= fixDate(gist.created_at) %></td>
               <td><%= link_to("Show", {:action => 'show', :id => gist.id}, :class => 'action btn btn-primary') %></td>

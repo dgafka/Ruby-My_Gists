@@ -18,15 +18,17 @@
       <th>Snippet</th>
       <th>Language</th>
       <th>Description</th>
-      <th>Create Date</th>
       <th>Show</th>
       <th>Delete</th>
     </tr>
         <tr>
-          <td><%= @gist.snippet %></td>
+          <% if !@gist.language %>
+          <td class="snippet"><%= @gist.snippet%></td>
+          <% else %>
+          <td class="snippet"><%= raw Pygments.highlight(@gist.snippet, lexer: @gist.language.name.downcase) %></td>
+          <% end %>
           <td><%= @gist.language ? @gist.language.name : 'Empty' %></td>
           <td><%= @gist.description %></td>
-          <td><%= fixDate(@gist.created_at) %></td>
           <td><%= link_to("Edit", {:action => 'edit', :id => @gist.id}, :class => 'action btn btn-warning') %></td>
           <td><%= link_to("Delete", {:action => 'delete', :id => @gist.id}, :class => 'action btn btn-danger') %></td>
         </tr>
@@ -38,7 +40,7 @@
           <th>Modification Date</th>
           <th>Summary</th>
         </tr>
-        <% if !@gist.gist_edits.empty? %>
+    <% if !@gist.gist_edits.empty? %>
             <% @gistEdits.each do |edit| %>
             <tr>
               <td><%= edit.user.username %></td>

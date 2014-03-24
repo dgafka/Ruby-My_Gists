@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$('div.container > ul.nav.nav-pills > li > a.back-link').click(function() {
+    alert('bla');
+});
