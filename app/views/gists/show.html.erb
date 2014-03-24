@@ -22,7 +22,7 @@
       <th>Delete</th>
     </tr>
         <tr>
-          <% if !@gist.language %>
+          <% if !@gist.language && (Pygments.lexers.include? @gist.language.name) %>
           <td class="snippet"><%= @gist.snippet%></td>
           <% else %>
           <td class="snippet"><%= raw Pygments.highlight(@gist.snippet, lexer: @gist.language.name.downcase) %></td>
