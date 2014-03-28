@@ -1,5 +1,7 @@
 == Gists Website Application
 
+Preview: http://evening-everglades-2118.herokuapp.com/
+
 This application was made for studies, for subject related with Ruby Rails.
 
 If you would like to run this application, you have to install following components
@@ -10,6 +12,12 @@ If you would like to run this application, you have to install following compone
 
 * Install gems
 
+===Changes
+* Added highlight syntex for gists
+* Added login & register system
+* Added bootstrap css framework
+* Added CRUD for languages & gists
+* Added modification control for gists 
 
 ===Application contains
 * Bootstrap 3
