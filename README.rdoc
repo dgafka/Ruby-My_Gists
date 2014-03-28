@@ -15,6 +15,7 @@ If you would like to run this application, you have to install following compone
 ===Changes
 * Added highlight syntex for gists
 * Added login & register system
+* Session management to block unauthorized access 
 * Added bootstrap css framework
 * Added CRUD for languages & gists
 * Added modification control for gists 
