@@ -13,7 +13,6 @@ gem 'rails', '4.0.4'
 # Use postgresql as the database for Active Record
 group :development do
   gem 'pg'
-  #gem 'sqlite3'
 end
 
 group :production, :staging do
