@@ -1,4 +1,30 @@
 body { padding-top: 70px; }
-.secondTable {
-    margin-top: 25px;
+
+.deleteBtn > a, .editBtn > a, .showBtn > a{
+    width: 60px;
+}
+
+@media (max-width: 600px) {
+
+    table.table.table-responsive.gists .language, .modification, .createDate, .difficulty, table.table.table-responsive.gists.shows .description {
+        display: none;
+    }
+
+    .panel .panel-default > .description {
+        display: none;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .showBtn, .deleteBtn, .editBtn {
+        display: block;
+        border: none;
+    }
+}
+
+@media (max-width: 350px) {
+    .snippet, .highlight {
+        max-width: 100px;
+    }
 }

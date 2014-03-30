@@ -12,20 +12,20 @@
   </div>
 
   <!-- Table -->
-  <table class="table">
+  <table class="table languages-table">
     <tr class="header">
-      <th>Language</th>
-      <th>Difficulty</th>
-      <th>Create Date</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th class="language">Language</th>
+      <th class="difficulty">Difficulty</th>
+      <th class="createDate">Create Date</th>
+      <th class="editBtn">Edit</th>
+      <th class="deleteBtn">Delete</th>
     </tr>
         <tr>
-          <td><%= @language.name %></td>
-          <td><%= @language.difficulty %></td>
-          <td><%= fixDate(@language.created_at) %></td>
-          <td><%= link_to("Edit", {:action => 'edit', :id => @language.id}, :class => 'action btn btn-warning') %></td>
-          <td><%= link_to("Delete", {:action => 'delete', :id => @language.id}, :class => 'action btn btn-danger') %></td>
+          <td class="language"><%= @language.name %></td>
+          <td class="difficulty"><%= @language.difficulty %></td>
+          <td class="createDate"><%= fixDate(@language.created_at) %></td>
+          <td class="editBtn"><%= link_to("Edit", {:action => 'edit', :id => @language.id}, :class => 'action btn btn-warning') %></td>
+          <td class="editBtn"><%= link_to("Delete", {:action => 'delete', :id => @language.id}, :class => 'action btn btn-danger') %></td>
         </tr>
   </table>
 </div>

@@ -10,25 +10,25 @@
   </div>
 
   <!-- Table -->
-  <table class="table">
+  <table class="table table-responsive gists">
     <tr class="header">
-        <th>Description</th>
-        <th>Language</th>
-        <th>Last Modification</th>
-        <th>Create Date</th>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th class="description">Description</th>
+        <th class="language">Language</th>
+        <th class="modification">Last Modification</th>
+        <th class="createDate">Create Date</th>
+        <th class="showBtn">Show</th>
+        <th class="editBtn">Edit</th>
+        <th class="deleteBtn">Delete</th>
     </tr>
     <% @gists.each do |gist| %>
         <tr>
-              <td><%= gist.description %></td>
-              <td><%= gist.language ? gist.language.name : 'Empty' %></td>
-              <td><%= fixDate(gist.updated_at) %></td>
-              <td><%= fixDate(gist.created_at) %></td>
-              <td><%= link_to("Show", {:action => 'show', :id => gist.id}, :class => 'action btn btn-primary') %></td>
-              <td><%= link_to("Edit", {:action => 'edit', :id => gist.id}, :class => 'action btn btn-warning') %></td>
-              <td><%= link_to("Delete", {:action => 'delete', :id => gist.id}, :class => 'action btn btn-danger') %></td>
+              <td class="description"><%= gist.description %></td>
+              <td class="language"><%= gist.language ? gist.language.name : 'Empty' %></td>
+              <td class="modification"><%= fixDate(gist.updated_at) %></td>
+              <td class="createDate"><%= fixDate(gist.created_at) %></td>
+              <td class="showBtn"><%= link_to("Show", {:action => 'show', :id => gist.id}, :class => 'action btn btn-primary') %></td>
+              <td class="editBtn"><%= link_to("Edit", {:action => 'edit', :id => gist.id}, :class => 'action btn btn-warning') %></td>
+              <td class="deleteBtn"><%= link_to("Delete", {:action => 'delete', :id => gist.id}, :class => 'action btn btn-danger') %></td>
         </tr>
     <% end %>
   </table>
