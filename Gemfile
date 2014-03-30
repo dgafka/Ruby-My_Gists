@@ -12,12 +12,13 @@ gem 'rails', '4.0.4'
 
 # Use postgresql as the database for Active Record
 group :development do
-  gem 'pg'
+  #gem 'pg'
+  gem 'sqlite3'
 end
 
 group :production, :staging do
-  gem 'pg'
-  gem 'rails_12factor'
+  #gem 'pg'
+  #gem 'rails_12factor'
 end
 
 gem 'pygments.rb'

@@ -1,6 +1,6 @@
 == Gists Website Application
 
-Preview: http://evening-everglades-2118.herokuapp.com/
+Preview: http://safe-dusk-4919.herokuapp.com/gists
 
 This application was made for studies, for subject related with Ruby Rails.
 
@@ -18,7 +18,8 @@ If you would like to run this application, you have to install following compone
 * Session management to block unauthorized access 
 * Added bootstrap css framework
 * Added CRUD for languages & gists
-* Added modification control for gists 
+* Added modification control for gists
+* Added full responsive css
 
 ===Application contains
 * Bootstrap 3

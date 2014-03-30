@@ -4,5 +4,5 @@ class Gist < ActiveRecord::Base
   belongs_to(:language)
 
   scope :sorted, lambda { order("gists.created_at DESC") }
-
+  scope :pagination, lambda { limit() }
 end

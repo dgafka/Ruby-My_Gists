@@ -33,3 +33,22 @@
     <% end %>
   </table>
 </div>
+<div class="pagination">
+  <% if(@site - 1) > 0 %>
+      <%= link_to("Previous", {:action => 'index', :id => (@site-1)}, :class => 'action btn btn-primary') %>
+  <% else %>
+    <%= link_to("Previous", {:action => 'index', :id => (@site-1)}, :class => 'action btn btn-primary disabled') %>
+  <% end %>
+  <% for x in 1..@siteAmount do %>
+        <% if(x == @site) %>
+            <%= link_to(x, {:action => 'index', :id => (x)}, :class => 'action btn btn-warning disabled', :id => x)  %>
+        <% else %>
+          <%= link_to(x, {:action => 'index', :id => (x)}, :class => 'action btn btn-primary', :id => x)  %>
+        <% end %>
+  <% end %>
+  <% if(@site +1) <= @siteAmount %>
+    <%= link_to("Next", {:action => 'index', :id => (@site+1)}, :class => 'action btn btn-primary') %>
+  <% else %>
+      <%= link_to("Next", {:action => 'index', :id => (@site+1)}, :class => 'action btn btn-primary disabled') %>
+  <% end %>
+</div>

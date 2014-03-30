@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140323115717) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "gist_edits", force: true do |t|
     t.integer  "user_id"
     t.integer  "gist_id"
@@ -24,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140323115717) do
     t.datetime "updated_at"
   end
 
-  add_index "gist_edits", ["user_id", "gist_id"], name: "index_gist_edits_on_user_id_and_gist_id", using: :btree
+  add_index "gist_edits", ["user_id", "gist_id"], name: "index_gist_edits_on_user_id_and_gist_id"
 
   create_table "gists", force: true do |t|
     t.text     "snippet"
@@ -51,6 +48,6 @@ ActiveRecord::Schema.define(version: 20140323115717) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username", using: :btree
+  add_index "users", ["username"], name: "index_users_on_username"
 
 end

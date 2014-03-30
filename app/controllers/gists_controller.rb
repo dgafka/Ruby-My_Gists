@@ -3,7 +3,20 @@ class GistsController < ApplicationController
   before_action :check_session, :except => [:index, :show]
 
   def index
-    @gists = Gist.sorted
+    @site       = params[:id];
+    if(!@site)
+      @site = 1;
+    else
+      @site = @site.to_i;
+    end
+    begins   = @site * 5 - 5;
+    limit = 5;
+
+    gistsAmount = Gist.count();
+    @siteAmount = (gistsAmount.to_f/5).ceil;
+    @gists = Gist.order("gists.created_at DESC").offset(begins).limit(limit);
+
+
   end
 
   def show
