@@ -4,19 +4,7 @@
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Gists - List</div>
-  <div class="panel-body">
-    <%= link_to("Add new Gist", {:action => 'create'}, :class => 'action btn btn-success addGist') %>
-  </div>
-  <%= form_for(:gist, :url => {:action => 'search'}) do |f| %>
-      <div class="form-group search">
-        <p>
-          Description: <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil, :class => 'btn btn-primary' %>
-        </p>
-        <br />
-      </div>
-  <% end %>
+  <div class="panel-heading">Gists - Search</div>
   <!-- Table -->
   <table class="table table-responsive gists">
     <tr class="header">

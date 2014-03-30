@@ -20,6 +20,8 @@ If you would like to run this application, you have to install following compone
 * Added CRUD for languages & gists
 * Added modification control for gists
 * Added full responsive css
+* Added Search form for gists
+* Added pagination for gists
 
 ===Application contains
 * Bootstrap 3

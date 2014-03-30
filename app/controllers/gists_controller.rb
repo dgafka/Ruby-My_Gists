@@ -77,6 +77,22 @@ class GistsController < ApplicationController
     redirect_to(:action => 'index')
   end
 
+  def search
+    @searchText = params[:search];
+    @site       = params[:id];
+    if(!@site)
+      @site = 1;
+    else
+      @site = @site.to_i;
+    end
+    begins   = @site * 5 - 5;
+    limit = 5;
+
+    gistsAmount = Gist.where("gists.description LIKE ?", "%#{@searchText}%").count();
+    @siteAmount = (gistsAmount.to_f/5).ceil;
+    @gists = Gist.where("lower(gists.description) LIKE ?", "%#{@searchText}%").order("gists.created_at DESC").offset(begins).limit(limit);
+  end
+
   private def section_params
             params.require(:gist).permit(:snippet, :language_id, :description)
           end

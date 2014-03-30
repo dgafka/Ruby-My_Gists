@@ -28,3 +28,13 @@ body { padding-top: 70px; }
         max-width: 100px;
     }
 }
+
+.search {
+    float: right;
+    display: inline-block;
+}
+
+.addGist {
+    float: left;
+    display: inline-block;
+}
