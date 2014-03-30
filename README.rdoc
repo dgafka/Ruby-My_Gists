@@ -1,6 +1,6 @@
 == Gists Website Application
 
-Preview: http://safe-dusk-4919.herokuapp.com/gists
+Preview: http://evening-everglades-2118.herokuapp.com/gists
 
 This application was made for studies, for subject related with Ruby Rails.
 
